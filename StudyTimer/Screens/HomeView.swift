@@ -11,7 +11,7 @@ struct HomeView: View {
     
     @Environment(\.scenePhase) var scenePhase
     
-    @State var timeValue: Double = 60
+    @State var timeValue: Double = 300
     @State var timeFinished: Bool = false
     @State var timerRunning = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -60,13 +60,13 @@ struct HomeView: View {
                             timeValue -= 1
                         }
                         else if timeValue == 0 {
-                            timeValue = 60
+                            timeValue = 300
                             timerRunning = false
                             timeFinished = true
                         }
                     }
                 
-                Slider(value: $timeValue, in: 60...3600, step: 60)
+                Slider(value: $timeValue, in: 300...10800, step: 300)
                     .frame(width: 300)
                 
                 Button {
@@ -80,17 +80,15 @@ struct HomeView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .onChange(of: scenePhase) { newValue in
-                    if newValue == .background {
-                        //Stop the timer
-                        timerRunning = false
-                        
+                    if newValue == .background && timerRunning {
                         //Send local notification
                         let content = UNMutableNotificationContent()
-                        content.title = "Don't give up now!"
-                        content.subtitle = "Continue your focus. You can do it."
+                        content.title = "Don't Give Up Now!"
+                        content.subtitle = chooseNotificationText()
                         content.sound = UNNotificationSound.default
-                        // show this notification five seconds from now
-                        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                        
+                        // show this notification 3 seconds from now
+                        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
                         
                         // choose a random identifier
                         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
