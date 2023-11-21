@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F56C275E2ACC469A0024B349 /* TimeUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56C275D2ACC469A0024B349 /* TimeUpScreen.swift */; };
 		F586B29F2A7BC84200212033 /* StudyTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586B29E2A7BC84200212033 /* StudyTimerApp.swift */; };
 		F586B2A12A7BC84200212033 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586B2A02A7BC84200212033 /* ContentView.swift */; };
 		F586B2A32A7BC84300212033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F586B2A22A7BC84300212033 /* Assets.xcassets */; };
@@ -15,10 +14,11 @@
 		F586B2B02A7BC8F300212033 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586B2AF2A7BC8F300212033 /* HomeView.swift */; };
 		F586B2B22A7BC95A00212033 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586B2B12A7BC95A00212033 /* BackgroundView.swift */; };
 		F586B2B52A7BDED900212033 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586B2B42A7BDED900212033 /* Helpers.swift */; };
+		F5C4DE742B0CBFA30024BA0D /* TimeUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C4DE732B0CBFA30024BA0D /* TimeUpView.swift */; };
+		F5C4DE762B0CC1480024BA0D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C4DE752B0CC1480024BA0D /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F56C275D2ACC469A0024B349 /* TimeUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUpScreen.swift; sourceTree = "<group>"; };
 		F586B29B2A7BC84200212033 /* StudyTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F586B29E2A7BC84200212033 /* StudyTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyTimerApp.swift; sourceTree = "<group>"; };
 		F586B2A02A7BC84200212033 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -27,6 +27,8 @@
 		F586B2AF2A7BC8F300212033 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F586B2B12A7BC95A00212033 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		F586B2B42A7BDED900212033 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		F5C4DE732B0CBFA30024BA0D /* TimeUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUpView.swift; sourceTree = "<group>"; };
+		F5C4DE752B0CC1480024BA0D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				F586B2AF2A7BC8F300212033 /* HomeView.swift */,
-				F56C275D2ACC469A0024B349 /* TimeUpScreen.swift */,
+				F5C4DE732B0CBFA30024BA0D /* TimeUpView.swift */,
+				F5C4DE752B0CC1480024BA0D /* OnboardingView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -131,7 +134,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					F586B29A2A7BC84200212033 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -173,12 +176,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5C4DE742B0CBFA30024BA0D /* TimeUpView.swift in Sources */,
 				F586B2B02A7BC8F300212033 /* HomeView.swift in Sources */,
-				F56C275E2ACC469A0024B349 /* TimeUpScreen.swift in Sources */,
 				F586B2A12A7BC84200212033 /* ContentView.swift in Sources */,
 				F586B2B22A7BC95A00212033 /* BackgroundView.swift in Sources */,
 				F586B2B52A7BDED900212033 /* Helpers.swift in Sources */,
 				F586B29F2A7BC84200212033 /* StudyTimerApp.swift in Sources */,
+				F5C4DE762B0CC1480024BA0D /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +225,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -281,6 +286,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -305,7 +311,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StudyTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = 5BDQ5WR29P;
 				ENABLE_PREVIEWS = YES;
@@ -321,7 +327,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bariscansertkaya.StudyTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -329,7 +335,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -339,7 +345,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StudyTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = 5BDQ5WR29P;
 				ENABLE_PREVIEWS = YES;
@@ -355,7 +361,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bariscansertkaya.StudyTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -363,7 +369,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

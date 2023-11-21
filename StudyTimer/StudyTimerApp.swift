@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct StudyTimerApp: App {
     
+    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
+    
     let center = UNUserNotificationCenter.current()
         
         init() {
@@ -23,7 +25,12 @@ struct StudyTimerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if hasSeenOnboarding {
+                ContentView()
+            }
+            else {
+                OnboardingView()
+            }
         }
     }
 }

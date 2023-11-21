@@ -1,68 +1,58 @@
 //
-//  TimeUpScreen.swift
+//  TimeUpView.swift
 //  StudyTimer
 //
-//  Created by Barış Can Sertkaya on 3.10.2023.
+//  Created by Barış Can Sertkaya on 21.11.2023.
 //
 
 import SwiftUI
 
-struct TimeUpScreen: View {
+struct TimeUpView: View {
     
     @Environment(\.dismiss) var dismiss
-
     
     var body: some View {
-        
         ZStack {
             BackgroundView()
             
-            VStack(spacing: 20) {
+            VStack {
                 
-                Spacer()
+                Text("Focean")
+                    .foregroundColor(.white)
+                    .font(.system(size: 50, weight: .bold, design: .serif))
                 
                 ZStack {
-                    
                     Circle()
                         .foregroundColor(.white)
-                        .padding(20)
                     
                     Image("ocean")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .clipShape(Circle())
-                        .frame(width: 310, height: 310, alignment: .center)
                         .foregroundColor(.blue)
+                        .padding()
                 }
-                Text("Congratulations!")
-                    .foregroundColor(.white)
-                    .font(.system(size: 40,weight: .semibold,design: .default))
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: 800)
                 
                 Text("You made it!")
                     .foregroundColor(.white)
-                    .font(.system(size: 30,weight: .thin,design: .default))
+                    .font(.system(size: 80, weight: .thin, design: .default))
                 
-                Button {
+                Button(action: {
                     dismiss()
-                } label: {
+                }, label: {
                     Text("Focus Again")
                         .foregroundColor(.white)
                         .font(.system(size: 25,weight: .semibold,design: .default))
                         .frame(width: 180,height: 50)
-                }
+                })
                 .buttonStyle(.borderedProminent)
-                
-                Spacer()
-
             }
         }
     }
-    
-    
-    
-    struct TimeUpScreen_Previews: PreviewProvider {
-        static var previews: some View {
-            TimeUpScreen()
-        }
-    }
+}
+
+#Preview {
+    TimeUpView()
 }

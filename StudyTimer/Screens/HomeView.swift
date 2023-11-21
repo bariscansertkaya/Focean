@@ -35,25 +35,25 @@ struct HomeView: View {
                 ZStack {
                     Circle()
                         .foregroundColor(.white)
-                        .padding()
-                    
                     
                     Image("ocean")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .clipShape(Circle())
-                        .frame(width: 310, height: 310, alignment: .center)
                         .foregroundColor(.blue)
                         .scaleEffect(timerRunning ? 1.1 : 1 )
                         .animation(.easeInOut(duration: 2.5), value: timerRunning)
+                        .padding()
                     
                 }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: 800)
                 
                 
                 Text(convertSecondsToTime(timeInSeconds: Int(timeValue)))
                     .foregroundColor(.white)
                     .font(.system(size: 80, weight: .thin, design: .default))
-                    .scaleEffect(timerRunning ? 1.25 : 1 )
+                    .scaleEffect(timerRunning ? 1.1 : 1 )
                     .animation(.easeInOut(duration: 2.5), value: timerRunning)
                     .onReceive(timer) { _ in
                         if timeValue > 0 && timerRunning {
@@ -99,12 +99,10 @@ struct HomeView: View {
                 }
                 Spacer()
             }
-            
-            
-            
+            .frame(maxWidth: .infinity)
         }
         .fullScreenCover(isPresented: $timeFinished) {
-            TimeUpScreen()
+            TimeUpView()
         }
     }
 }
