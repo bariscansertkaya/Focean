@@ -16,7 +16,6 @@ struct TimeUpView: View {
             BackgroundView()
             
             VStack {
-                
                 Text("Focean")
                     .foregroundColor(.white)
                     .font(.system(size: 50, weight: .bold, design: .serif))
@@ -28,16 +27,16 @@ struct TimeUpView: View {
                     Image("ocean")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .clipShape(Circle())
-                        .foregroundColor(.blue)
+                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                         .padding()
+                    
                 }
                 .padding()
-                .frame(maxWidth: .infinity, maxHeight: 800)
+                .frame(height: 400)
                 
                 Text("You made it!")
                     .foregroundColor(.white)
-                    .font(.system(size: 80, weight: .thin, design: .default))
+                    .font(.system(size: 50, weight: .thin, design: .default))
                 
                 Button(action: {
                     dismiss()

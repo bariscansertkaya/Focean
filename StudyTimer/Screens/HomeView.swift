@@ -40,14 +40,13 @@ struct HomeView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .clipShape(Circle())
-                        .foregroundColor(.blue)
+                        .padding()
                         .scaleEffect(timerRunning ? 1.1 : 1 )
                         .animation(.easeInOut(duration: 2.5), value: timerRunning)
-                        .padding()
                     
                 }
                 .padding()
-                .frame(maxWidth: .infinity, maxHeight: 800)
+                .frame(height: 400)
                 
                 
                 Text(convertSecondsToTime(timeInSeconds: Int(timeValue)))
