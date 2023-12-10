@@ -18,7 +18,7 @@ struct TimeUpView: View {
             VStack {
                 Text("Focean")
                     .foregroundColor(.white)
-                    .font(.system(size: 50, weight: .bold, design: .serif))
+                    .font(.system(size: 60, weight: .bold, design: .serif))
                 
                 ZStack {
                     Circle()

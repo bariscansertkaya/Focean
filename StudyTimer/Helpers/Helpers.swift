@@ -12,7 +12,11 @@ func convertSecondsToTime(timeInSeconds: Int) -> String {
     let minutes = (timeInSeconds % 3600) / 60
     let seconds = timeInSeconds % 60
     
-    return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
+    if hours > 0 {
+        return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
+    } else {
+        return String(format: "%02i:%02i", minutes, seconds)
+    }
 }
 
 func chooseNotificationText() -> String {

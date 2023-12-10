@@ -8,28 +8,28 @@
 import SwiftUI
 
 struct HomeView: View {
-    
     @Environment(\.scenePhase) var scenePhase
-    
-    @State var timeValue: Double = 300
-    @State var timeFinished: Bool = false
-    @State var timerRunning = false
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
+    @StateObject private var timerManager = TimerManager()
     
     var body: some View {
         ZStack {
             BackgroundView()
             
             VStack(spacing: 10) {
+                
                 VStack(spacing: 10) {
                     Text("Welcome to the ")
                         .foregroundColor(.white)
-                        .font(.system(size: 25,weight: .semibold,design: .default))
+                        .font(.system(size: 25, weight: .semibold, design: .default))
+                        .opacity(timerManager.timerRunning ? 0:1)
+                        .animation(.linear(duration: 0.5), value: timerManager.timerRunning)
                     
                     Text("Focean")
                         .foregroundColor(.white)
-                        .font(.system(size: 50, weight: .bold, design: .serif))
+                        .font(.system(size: timerManager.timerRunning ? 60:50, weight: .bold, design: .serif))
+                        .offset(timerManager.timerRunning ? CGSize(width: 0, height: -20.0) : .zero)
+                        .animation(.easeOut(duration: 0.75), value: timerManager.timerRunning)
+                        .frame(width: 300, height: 80)
                 }
                 
                 ZStack {
@@ -41,67 +41,60 @@ struct HomeView: View {
                         .aspectRatio(contentMode: .fill)
                         .clipShape(Circle())
                         .padding()
-                        .scaleEffect(timerRunning ? 1.1 : 1 )
-                        .animation(.easeInOut(duration: 2.5), value: timerRunning)
+                        .scaleEffect(timerManager.timerRunning ? 1.1 : 1 )
+                        .animation(.easeInOut(duration: 2), value: timerManager.timerRunning)
                     
                 }
                 .padding()
                 .frame(height: 400)
                 
-                
-                Text(convertSecondsToTime(timeInSeconds: Int(timeValue)))
+                Text(convertSecondsToTime(timeInSeconds: timerManager.timeRemaining))
                     .foregroundColor(.white)
                     .font(.system(size: 80, weight: .thin, design: .default))
-                    .scaleEffect(timerRunning ? 1.1 : 1 )
-                    .animation(.easeInOut(duration: 2.5), value: timerRunning)
-                    .onReceive(timer) { _ in
-                        if timeValue > 0 && timerRunning {
-                            timeValue -= 1
-                        }
-                        else if timeValue == 0 {
-                            timeValue = 300
-                            timerRunning = false
-                            timeFinished = true
-                        }
-                    }
+                    .scaleEffect(timerManager.timerRunning ? 1.1 : 1 )
+                    .animation(.easeInOut(duration: 2), value: timerManager.timerRunning)
                 
-                Slider(value: $timeValue, in: 300...10800, step: 300)
+                Slider(value: $timerManager.selectedTime, in: 300...10800, step: 300)
                     .frame(width: 300)
                 
                 Button {
-                    timerRunning.toggle()
-                    
+                    if timerManager.timerRunning {
+                        timerManager.stopTimer()
+                    } else {
+                        timerManager.startTimer()
+                    }
                 } label: {
-                    Text(timerRunning ? "Pause" : "Focus")
+                    Text(timerManager.timerRunning ? "Pause" : "Focus")
                         .foregroundColor(.white)
-                        .font(.system(size: 25,weight: .semibold,design: .default))
-                        .frame(width: 180,height: 50)
+                        .font(.system(size: 25, weight: .semibold, design: .default))
+                        .frame(width: 180, height: 50)
                 }
                 .buttonStyle(.borderedProminent)
-                .onChange(of: scenePhase) { newValue in
-                    if newValue == .background && timerRunning {
-                        //Send local notification
-                        let content = UNMutableNotificationContent()
-                        content.title = "Don't Give Up Now!"
-                        content.subtitle = chooseNotificationText()
-                        content.sound = UNNotificationSound.default
-                        
-                        // show this notification 3 seconds from now
-                        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
-                        
-                        // choose a random identifier
-                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                        
-                        // add our notification request
-                        UNUserNotificationCenter.current().add(request)
-                    }
-                }
-                Spacer()
+                /*
+                 .onChange(of: scenePhase) { newValue in
+                 if newValue == .background && timerManager.timerRunning {
+                 // Send local notification
+                 let content = UNMutableNotificationContent()
+                 content.title = "Don't Give Up Now!"
+                 content.subtitle = chooseNotificationText()
+                 content.sound = UNNotificationSound.default
+                 
+                 // Show this notification 3 seconds from now
+                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+                 
+                 // Choose a random identifier
+                 let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                 
+                 // Add our notification request
+                 UNUserNotificationCenter.current().add(request)
+                 }
+                 }
+                 */
             }
+            .fullScreenCover(isPresented: $timerManager.timerFinished, content: {
+                TimeUpView()
+            })
             .frame(maxWidth: .infinity)
-        }
-        .fullScreenCover(isPresented: $timeFinished) {
-            TimeUpView()
         }
     }
 }
