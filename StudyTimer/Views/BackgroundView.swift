@@ -7,13 +7,18 @@
 
 import SwiftUI
 
+
+
 struct BackgroundView: View {
+    
+    @ObservedObject var userSettings = UserSettings.shared
+    
     var body: some View {
-        LinearGradient(colors: [.blue,.cyan], 
+        LinearGradient(colors: [.cyan, .blue],
                        startPoint: .topLeading,
                        endPoint: .bottomTrailing)
-            .frame(maxWidth: .infinity)
-            .ignoresSafeArea()
+        .frame(maxWidth: .infinity)
+        .ignoresSafeArea()
     }
 }
 

@@ -17,6 +17,9 @@
 		F5A603492B25D2170092E824 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A603482B25D2170092E824 /* TimeManager.swift */; };
 		F5C4DE742B0CBFA30024BA0D /* TimeUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C4DE732B0CBFA30024BA0D /* TimeUpView.swift */; };
 		F5C4DE762B0CC1480024BA0D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C4DE752B0CC1480024BA0D /* OnboardingView.swift */; };
+		F5DBFFB92B277E3E00483134 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DBFFB82B277E3E00483134 /* SettingsView.swift */; };
+		F5DBFFBC2B27836000483134 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DBFFBB2B27836000483134 /* StoreView.swift */; };
+		F5DBFFC02B27AC2800483134 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DBFFBF2B27AC2800483134 /* SettingsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		F5A603482B25D2170092E824 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		F5C4DE732B0CBFA30024BA0D /* TimeUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUpView.swift; sourceTree = "<group>"; };
 		F5C4DE752B0CC1480024BA0D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		F5DBFFB82B277E3E00483134 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F5DBFFBB2B27836000483134 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
+		F5DBFFBF2B27AC2800483134 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,14 +69,13 @@
 		F586B29D2A7BC84200212033 /* StudyTimer */ = {
 			isa = PBXGroup;
 			children = (
+				F5DBFFBA2B27834000483134 /* Managers */,
 				F586B2B32A7BDECC00212033 /* Helpers */,
 				F586B2AD2A7BC8D000212033 /* Screens */,
 				F586B2AC2A7BC8CA00212033 /* Views */,
 				F586B29E2A7BC84200212033 /* StudyTimerApp.swift */,
-				F586B2A02A7BC84200212033 /* ContentView.swift */,
 				F586B2A22A7BC84300212033 /* Assets.xcassets */,
 				F586B2A42A7BC84300212033 /* Preview Content */,
-				F5A603482B25D2170092E824 /* TimeManager.swift */,
 			);
 			path = StudyTimer;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				F586B2B12A7BC95A00212033 /* BackgroundView.swift */,
+				F5DBFFBB2B27836000483134 /* StoreView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -94,9 +100,11 @@
 		F586B2AD2A7BC8D000212033 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F586B2A02A7BC84200212033 /* ContentView.swift */,
 				F586B2AF2A7BC8F300212033 /* HomeView.swift */,
 				F5C4DE732B0CBFA30024BA0D /* TimeUpView.swift */,
 				F5C4DE752B0CC1480024BA0D /* OnboardingView.swift */,
+				F5DBFFB82B277E3E00483134 /* SettingsView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -107,6 +115,15 @@
 				F586B2B42A7BDED900212033 /* Helpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F5DBFFBA2B27834000483134 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F5A603482B25D2170092E824 /* TimeManager.swift */,
+				F5DBFFBF2B27AC2800483134 /* SettingsManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,10 +199,13 @@
 				F5C4DE742B0CBFA30024BA0D /* TimeUpView.swift in Sources */,
 				F586B2B02A7BC8F300212033 /* HomeView.swift in Sources */,
 				F586B2A12A7BC84200212033 /* ContentView.swift in Sources */,
+				F5DBFFB92B277E3E00483134 /* SettingsView.swift in Sources */,
 				F586B2B22A7BC95A00212033 /* BackgroundView.swift in Sources */,
 				F586B2B52A7BDED900212033 /* Helpers.swift in Sources */,
 				F586B29F2A7BC84200212033 /* StudyTimerApp.swift in Sources */,
+				F5DBFFC02B27AC2800483134 /* SettingsManager.swift in Sources */,
 				F5A603492B25D2170092E824 /* TimeManager.swift in Sources */,
+				F5DBFFBC2B27836000483134 /* StoreView.swift in Sources */,
 				F5C4DE762B0CC1480024BA0D /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
