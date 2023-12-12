@@ -14,12 +14,12 @@
 		F586B2B02A7BC8F300212033 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586B2AF2A7BC8F300212033 /* HomeView.swift */; };
 		F586B2B22A7BC95A00212033 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586B2B12A7BC95A00212033 /* BackgroundView.swift */; };
 		F586B2B52A7BDED900212033 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F586B2B42A7BDED900212033 /* Helpers.swift */; };
+		F597ECC02B28CE8A0024205D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F597ECBF2B28CE8A0024205D /* NotificationManager.swift */; };
 		F5A603492B25D2170092E824 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A603482B25D2170092E824 /* TimeManager.swift */; };
 		F5C4DE742B0CBFA30024BA0D /* TimeUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C4DE732B0CBFA30024BA0D /* TimeUpView.swift */; };
 		F5C4DE762B0CC1480024BA0D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C4DE752B0CC1480024BA0D /* OnboardingView.swift */; };
 		F5DBFFB92B277E3E00483134 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DBFFB82B277E3E00483134 /* SettingsView.swift */; };
 		F5DBFFBC2B27836000483134 /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DBFFBB2B27836000483134 /* StoreView.swift */; };
-		F5DBFFC02B27AC2800483134 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DBFFBF2B27AC2800483134 /* SettingsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,12 +31,12 @@
 		F586B2AF2A7BC8F300212033 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F586B2B12A7BC95A00212033 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		F586B2B42A7BDED900212033 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		F597ECBF2B28CE8A0024205D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		F5A603482B25D2170092E824 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		F5C4DE732B0CBFA30024BA0D /* TimeUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUpView.swift; sourceTree = "<group>"; };
 		F5C4DE752B0CC1480024BA0D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		F5DBFFB82B277E3E00483134 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F5DBFFBB2B27836000483134 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
-		F5DBFFBF2B27AC2800483134 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				F5A603482B25D2170092E824 /* TimeManager.swift */,
-				F5DBFFBF2B27AC2800483134 /* SettingsManager.swift */,
+				F597ECBF2B28CE8A0024205D /* NotificationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -202,8 +202,8 @@
 				F5DBFFB92B277E3E00483134 /* SettingsView.swift in Sources */,
 				F586B2B22A7BC95A00212033 /* BackgroundView.swift in Sources */,
 				F586B2B52A7BDED900212033 /* Helpers.swift in Sources */,
+				F597ECC02B28CE8A0024205D /* NotificationManager.swift in Sources */,
 				F586B29F2A7BC84200212033 /* StudyTimerApp.swift in Sources */,
-				F5DBFFC02B27AC2800483134 /* SettingsManager.swift in Sources */,
 				F5A603492B25D2170092E824 /* TimeManager.swift in Sources */,
 				F5DBFFBC2B27836000483134 /* StoreView.swift in Sources */,
 				F5C4DE762B0CC1480024BA0D /* OnboardingView.swift in Sources */,

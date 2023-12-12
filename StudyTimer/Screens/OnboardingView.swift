@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
+    @AppStorage("showOnboarding") var showOnboarding: Bool = true
     
     var body: some View {
         ZStack {
@@ -22,23 +22,27 @@ struct OnboardingView: View {
                 
                 Text("Focean")
                     .foregroundColor(.white)
-                    .font(.system(size: 50, weight: .bold, design: .serif))
+                    .font(.system(size: 60, weight: .bold, design: .serif))
                 
                 
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("Choose your focus duration and dive into our calming theme.")
+                VStack(alignment: .leading, spacing: 30) {
+                    Text("Focean is a simple focus timer designed with a minimalist approach.")
                     
-                    Text("Ride the waves of productivity until your study session ends.")
+                    Text("Set your focus duration and immerse yourself in our calming theme.")
                     
-                    Text("Focean will kindly remind you with notifications if you step away while your timer is running.")
+                    Text("Stay productive until your work session ends.")
+                    
+                    Text("Focean will gently remind you with notifications if you close the app while your timer is running.")
                 }
                 .frame(maxWidth: 500)
                 .font(.headline)
+                .fontWeight(.semibold)
+                .padding(.horizontal)
                 .padding(.horizontal)
                 .foregroundStyle(.white)
                 
                 Button(action: {
-                    hasSeenOnboarding = true
+                    showOnboarding = false
                 }, label: {
                     Text("Begin")
                         .foregroundColor(.white)

@@ -19,21 +19,4 @@ func convertSecondsToTime(timeInSeconds: Int) -> String {
     }
 }
 
-func chooseNotificationText() -> String {
-    
-    let texts =
-    [
-        "Continue your focus. You can do it!",
-        "Small steps lead to big results.",
-        "Believe in yourself. You've got this!",
-        "Your effort today is tomorrow's success.",
-        "Each effort counts, no matter how small.",
-        "Believe in the power of your determination."
-    ]
-    
-    if let randomText = texts.randomElement() {
-        return randomText
-    }
-    
-    return texts[0]
-}
+

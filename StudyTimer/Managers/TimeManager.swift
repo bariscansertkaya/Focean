@@ -19,10 +19,10 @@ class TimerManager: ObservableObject {
     }
     @Published private(set) var timeRemaining = 300 // Defult time in seconds (5 minutes)
     @Published var timerRunning = false
+    @Published var timerRanInBackground = false
     @Published var timerFinished = false
     
     private var backgroundTime: Date?
-    private var timerRanInBackground = false
     private var timer: Timer?
     
     init() {

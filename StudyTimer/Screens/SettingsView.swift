@@ -10,8 +10,6 @@ import SwiftUI
 struct SettingsView: View {
     
     @Environment(\.dismiss) private var dismiss
-    @State private var notificationsAllowed = UserSettings.shared.notificationsAllowed
-    @State private var soundAllowed = UserSettings.shared.soundAllowed
     
     var body: some View {
         NavigationView {
@@ -23,10 +21,9 @@ struct SettingsView: View {
                     .bold()
                 
                 Form {
-                    
                     Section {
-                        Toggle("Notifications", isOn: $notificationsAllowed)
-                        Toggle("Sound", isOn: $soundAllowed)
+                        Toggle("Notifications", isOn: .constant(true))
+                        //Toggle("Sound", isOn: $soundAllowed)
                     }
                     
                 }

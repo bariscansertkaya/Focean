@@ -9,9 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @ObservedObject var userSettings = UserSettings.shared
+    @AppStorage("showOnboarding") var showOnboarding: Bool = true
     
     @Environment(\.scenePhase) var scenePhase
+    
     @StateObject private var timerManager = TimerManager()
     
     @State private var showSettings = false
@@ -79,26 +80,11 @@ struct HomeView: View {
                             .frame(width: 180, height: 50)
                     }
                     .buttonStyle(.borderedProminent)
-                    /*
-                     .onChange(of: scenePhase) { newValue in
-                     if newValue == .background && timerManager.timerRunning {
-                     // Send local notification
-                     let content = UNMutableNotificationContent()
-                     content.title = "Don't Give Up Now!"
-                     content.subtitle = chooseNotificationText()
-                     content.sound = UNNotificationSound.default
-                     
-                     // Show this notification 3 seconds from now
-                     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
-                     
-                     // Choose a random identifier
-                     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                     
-                     // Add our notification request
-                     UNUserNotificationCenter.current().add(request)
-                     }
-                     }
-                     */
+                    .onChange(of: scenePhase) { newValue in
+                        if newValue == .background, timerManager.timerRanInBackground {
+                            sendNotification()
+                        }
+                    }
                 }
                 .fullScreenCover(isPresented: $timerManager.timerFinished, content: {
                     TimeUpView()
@@ -114,6 +100,7 @@ struct HomeView: View {
                             .foregroundColor(.white)
                             .font(.title3)
                     }
+                    .hidden()
                 }
                 
                 ToolbarItem(placement: .topBarLeading) {
@@ -125,6 +112,7 @@ struct HomeView: View {
                             .foregroundColor(.white)
                             .font(.title3)
                     }
+                    .hidden()
                 }
             }
         }
@@ -133,6 +121,13 @@ struct HomeView: View {
         })
         .fullScreenCover(isPresented: $showStore, content: {
             StoreView()
+        })
+        .fullScreenCover(isPresented: $showOnboarding, content: {
+            OnboardingView()
+                .onDisappear(perform: {
+                    // Request notifications permission
+                    requestNotificationPermission()
+                })
         })
         
     }

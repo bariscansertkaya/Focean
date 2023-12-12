@@ -10,8 +10,7 @@ import SwiftUI
 
 
 struct BackgroundView: View {
-    
-    @ObservedObject var userSettings = UserSettings.shared
+
     
     var body: some View {
         LinearGradient(colors: [.cyan, .blue],
