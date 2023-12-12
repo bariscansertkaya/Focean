@@ -11,7 +11,7 @@ import SwiftUI
 
 class TimerManager: ObservableObject {
     
-    @Published var selectedTime: Double = 300 {
+    @Published var selectedTime: Double = 10 {
         didSet {
             timeRemaining = Int(selectedTime)
             timerRunning = false
